@@ -23,7 +23,7 @@ body{
 .container{
     padding: 32px 0 60px;
 }
-.container :where(.app-header,.suggestions, .prompt-wrapper,.disclaimer-text){
+ .container :where(.app-header,.suggestions,.message, .prompt-wrapper,.disclaimer-text){ 
     margin: 0 auto;
     width: 100%;
     max-width: 980px;
@@ -59,6 +59,9 @@ body{
     overflow-x: auto;
     scrollbar-width: none;
 
+}
+.container :is(.app-header, .suggestions){
+    display: none;
 }
 
 .suggestions .suggestions-item{
@@ -103,3 +106,128 @@ body{
 .suggestions .suggestions-item:nth-child(4) span{
     color: #6f42c1;
 }
+/* chats container */
+ .container .chats-container{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+} 
+ .chats-container .message{
+    display: flex;
+    gap: 11px;
+    align-items: center;
+}
+.chats-container .bot-message .avatar{
+   height: 43px;
+   width: 43px;
+   flex-shrink: 0;
+   padding: 6px;
+   margin-right: -7px;
+   align-self: flex-start;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    border: 1px solid var(--secondary-hover-color);
+}
+
+.chats-container .message .message-text{
+    padding: 3px 16px;
+    word-wrap: break-word;
+    white-space: pre-line;
+
+}
+.chats-container .bot-message{
+    margin: 9px auto;
+}
+.chats-container .user-message{
+    flex-direction: column;
+    align-items: flex-end;
+}
+.chats-container .user-message .message-text{
+    padding: 12px;
+    max-width: 75%;
+    border-radius: 13px 13px 3px 13px;
+    background: var(--secondary-color);
+
+}
+
+
+/* prompt-container */
+.prompt-container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px 0;
+    background: var(--primary-color);
+}
+.prompt-container :where(.prompt-wrapper,.prompt-form,.prompt-actions){
+    display: flex;
+    gap:12px;
+    height: 56px;
+    align-items: center;
+}
+.prompt-wrapper .prompt-form {
+width: 100%;
+height: 100%;
+border-radius: 130px;
+background: var(--secondary-color);
+}
+
+.prompt-form .prompt-input{
+   height: 100%;
+   width: 100%;
+   background: none;
+   outline: none;
+   border:none;
+   font-size: 1rem;
+   padding-left: 24px;
+   color: var(--text-color); 
+}
+
+.prompt-form .prompt-input::placeholder{
+    color: var(--placeholder-color);
+}
+.prompt-wrapper button{
+    width: 56px;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    background: var(--secondary-color);
+
+}
+
+.prompt-wrapper button:hover{
+background: var(--secondary-hover-color);
+}
+.prompt-form .prompt-actions {
+    gap: 5px;
+    margin-right: 7px;
+}
+
+.prompt-form .prompt-actions button{
+    height: 45px;
+    width: 45px;
+}
+.prompt-form #send-file-btn{
+    color:#fff;
+    display: none;
+    background: #1d7efd;
+}
+.prompt-form .prompt-input:valid ~ .prompt-actions #send-file-btn{
+    display: block;
+}
+.prompt-form #send-file-btn:hover{
+    background: #0264e4;
+}
+
+.prompt-container .disclaimer-text{
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 16px 20px 0;
+    color: var(--placeholder-color);
+}
+
