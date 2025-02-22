@@ -45,7 +45,7 @@
           </ul>
            <!-- chats container -->
           <div class=" chats-container">
-            <div class="message user-message">
+           <!--  <div class="message user-message">
                 <p class="message-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
 
@@ -54,7 +54,7 @@
             <div class="message bot-message">
                <img src="./img/gemini-chatbot-logo.svg"  class="avatar">
                 <p class="message-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
-            </div>
+            </div> -->
 
           </div>
 
@@ -64,9 +64,22 @@
                 <form action="#" class="prompt-form">
                     <input type="text" placeholder="Ask Gemini" class="prompt-input" required>
                    <div class="prompt-actions">
-                    <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file
+                    <!-- file upload -->
+                    <div class="file-upload-wrapper ">
+                        <img src="#" class="file-preview">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input" hidden>
+                        <button  type="button" class=" file-icon material-symbols-rounded">description
 
-                    </button>
+                        </button>
+                        <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file
+
+                        </button>
+                        <button id="cancel-file-btn" type="button" class="material-symbols-rounded">close
+
+                        </button>
+                    </div>
+
+                  
                     <button id="send-file-btn" class="material-symbols-rounded">arrow_upward</button>
                    </div>
                 </form>
