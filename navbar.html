@@ -1,0 +1,73 @@
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="home.html">Gemini</a>
+    </div>
+    <ul class="nav-links">
+        <!-- <li><a href="home.html">Home</a></li> -->
+        <!-- <li><a href="about.html">About</a></li> -->
+        <li><a href="registration.html">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="#" id="dashboard-link">Chatbot</a></li>
+    </ul>
+    <div class="user-menu">
+        <!-- <button id="logout-btn" class="logout-btn">Logout</button> -->
+        <!-- <div class="dropdown-menu" id="dropdown">
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+            <a href="logout.html" id="logout-btn">Logout</a>
+        </div> -->
+    </div>
+</nav>
+
+<!-- Notification Message -->
+<div id="notification" class="hidden">⚠️ You must be logged in to access the Dashboard!</div>
+
+<!-- JavaScript -->
+<script>
+    /*  document.getElementById("logout-btn").addEventListener("click", function() {
+         alert("Logging out...");
+         window.location.href = "login.html"; // Redirect to login page
+     }); */
+     document.getElementById("logout-btn").addEventListener("click", function() {
+         alert("Logging out...");
+         window.location.href = "login.html"; // Redirect to login page
+     });
+ 
+     document.getElementById("logout-btn")?.addEventListener("click", function () {
+     localStorage.removeItem("isLoggedIn");  // Remove login session
+     localStorage.removeItem("currentUser"); // Optional: Remove user data if stored
+     alert("You have been logged out successfully!");
+     window.location.href = "login.html"; // Redirect to login page
+ });
+
+ </script>
+
+<!-- CSS for Notification -->
+<style>
+    #notification {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff4d4d;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+    }
+
+   /*  .hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #notification:not(.hidden) {
+        opacity: 1;
+        pointer-events: auto;
+    } */
+</style>

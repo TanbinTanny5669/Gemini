@@ -227,3 +227,51 @@ document.querySelectorAll(".suggestions-item").forEach(item =>{
 
 promptForm.addEventListener('submit',handleFormSubmit);
 promptForm.querySelector("#add-file-btn").addEventListener("click",()=> fileInput.click());
+
+
+
+
+/////////////////////////////////////////////
+document.addEventListener("DOMContentLoaded", () => {
+    const registerForm = document.getElementById("register-form");
+    const loginForm = document.getElementById("login-form");
+
+    if (registerForm) {
+        registerForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const first_name = document.getElementById("register-firstname").value;
+            const last_name = document.getElementById("register-lastname").value;
+            const email = document.getElementById("register-email").value;
+            const password = document.getElementById("register-password").value;
+
+            const res = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ first_name, last_name, email, password })
+            });
+
+            const data = await res.json();
+            alert(data.message);
+        });
+    }
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+
+            const res = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+            alert(data.message);
+        });
+    }
+});
+
